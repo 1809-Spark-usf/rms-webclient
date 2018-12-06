@@ -9,19 +9,19 @@ import { ErrorComponent } from './components/error/error/error.component';
 
 const routes: Routes = [{
   component: AssociateHomeComponent,
-  path: '/'
+  path: ''
   }, {
     component: SearchComponent,
-    path: '/search'
+    path: 'search'
   }, {
     component: ReservationsComponent,
-    path: '/reservations'
+    path: 'reservations'
   }, {
     component: SuccessComponent,
-    path: '/success'
+    path: 'success'
   }, {
     component: ErrorComponent,
-    path: '/error'
+    path: 'error'
   },
 ];
 
