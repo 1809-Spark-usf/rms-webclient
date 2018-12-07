@@ -22,7 +22,8 @@ const routes: Routes = [{
   }, {
     component: ErrorComponent,
     path: 'error'
-  },
+  }
+
 ];
 
 @NgModule({

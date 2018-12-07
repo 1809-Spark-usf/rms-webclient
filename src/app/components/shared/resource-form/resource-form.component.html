@@ -2,34 +2,40 @@
   <form>
     <div class="formItem">
       <label>Campuses:&nbsp;</label>
-      <select id="campuses" class="form-control form-control-sm">
+      <select [(ngModel)]="campus" name="campus" id="campuses" class="form-control form-control-sm">
         <option ngFor="key of campus"></option>
       </select>
     </div>
-  
     <div class="formItem">
       <label>Building:&nbsp;</label>
-      <select id="building" class="form-control form-control-sm">
-          <option ngFor="buidling of campus?building"></option>
-      </select>
-    </div>
-    <div class="formItem">
-      <label>Date & Time&nbsp;&nbsp;</label>
-      <input type="date" name="date">
-      <br>
-    </div>
-    <div class="formItem">
-      <label>Start&nbsp;&nbsp;</label>
-      <input type="time" name="time1" min="9:00" max="17:00" required>
-      <label>&nbsp;&nbsp;End&nbsp;&nbsp;</label>
-      <input type="time" name="time2" min="9:00" max="17:00" required>
-    </div>
-    <div class="formItem">
-      <label>Purpose:&nbsp;</label>
-      <select id="purpose" class="form-control form-control-sm">
-        <option ngFor="key of campus"></option>
+      <select [(ngModel)]="building" name="building" id="building" class="form-control form-control-sm">
+          <option ngFor="buidling of campus.?building"></option>
       </select>
     </div>
     <span class="note">*Office hours from 9:00 AM to 5:00 PM</span>
+    <div class="formItem">
+      <label>Date & Time&nbsp;&nbsp;</label>
+      <input [(ngModel)]="date" type="date" name="date">
+      <br>
+    </div>
+    <div class="formItem">
+      <label>Start*&nbsp;&nbsp;</label>
+      <input [(ngModel)]="time1" type="time" name="time1" min="9:00" max="17:00" required>
+    </div>
+    <div> 
+      <label>&nbsp;&nbsp;End*&nbsp;&nbsp;</label>
+      <input [(ngModel)]="time2" type="time" name="time2" min="9:00" max="17:00" required>
+    </div>
+    <div class="formItem">
+      <label>Purpose:&nbsp;</label>
+      <select [(ngModel)]="purpose" name="purpose" id="purpose" class="form-control form-control-sm">
+        <option>Panel</option>
+        <option>Interview</option>
+      </select>
+    </div>
   </form>
+  <div id="buttonCon">
+    <button (click)="submit()" id="createBTN" class="btn btn-primary">Create</button>
+    <button type="button" id="cancelBTN" class="btn btn-primary">Cancel</button>
+  </div>
 </fieldset>

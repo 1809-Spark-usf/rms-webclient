@@ -18,6 +18,8 @@ import { ViewResourcesComponent } from './components/search/view-resources/view-
 import { ReservationsComponent } from './components/reservations/reservations/reservations.component';
 import { SuccessComponent } from './components/success/success/success.component';
 import { ErrorComponent } from './components/error/error/error.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { ErrorComponent } from './components/error/error/error.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

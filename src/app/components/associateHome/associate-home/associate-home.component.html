@@ -1,3 +1,41 @@
-<p>
-  associate-home works!
-</p>
+<div class="container">
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel title="Simple">
+      <ng-template ngbPanelContent>
+        <ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>
+        <button class="btn btn-sm btn-outline-{{meridian ? 'success' : 'danger'}}" (click)="toggleMeridian()">
+          Meridian - {{meridian ? "ON" : "OFF"}}
+        </button>
+        <hr>
+
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel>
+      <ng-template ngbPanelTitle>
+        <span>&#9733; <b>Fancy</b> title &#9733;</span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>
+        <button class="btn btn-sm btn-outline-{{meridian ? 'success' : 'danger'}}" (click)="toggleMeridian()">
+          Meridian - {{meridian ? "ON" : "OFF"}}
+        </button>
+        <hr>
+
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel title="Third">
+
+      <ng-template ngbPanelContent>
+        <ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>
+        <button class="btn btn-sm btn-outline-{{meridian ? 'success' : 'danger'}}" (click)="toggleMeridian()">
+          Meridian - {{meridian ? "ON" : "OFF"}}
+        </button>
+
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>
+
+
+
+<router-outlet></router-outlet>
