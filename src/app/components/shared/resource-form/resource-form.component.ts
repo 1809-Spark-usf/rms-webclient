@@ -26,7 +26,8 @@ const reservation = {
 'buildingId': 1,
 'start': start,
 'end': end,
-'resourceId': 1,
+'resourceId': 0,
+'resource': null,
 'userEmail': this.email,
 'purpose': this.purpose,
 'cancelled': false,
@@ -34,7 +35,7 @@ const reservation = {
 };
 
 this.newResServ.queryAvailableResources(reservation);
-
+this.newResServ.reservation = reservation;
 
 console.log(reservation);
 }
