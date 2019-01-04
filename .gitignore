@@ -5,6 +5,9 @@
 /tmp
 /out-tsc
 
+# Sonar Generated Folder
+/.scannerwork
+
 # dependencies
 /node_modules
 

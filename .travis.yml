@@ -29,4 +29,4 @@ jobs:
         sonarcloud:
           oranization: "1809-spark-usf"
       script:
-        - sonar-scanner
+        - sonar-scanner -D sonar.login=$SONAR_TOKEN
