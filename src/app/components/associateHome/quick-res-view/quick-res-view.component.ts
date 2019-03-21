@@ -16,20 +16,6 @@ export class QuickResViewComponent implements OnInit, OnDestroy {
   error; boolean;
 
   constructor(private reservationService: ReservationService) {
-    // Hides results while the HTTP request is waiting for a response
-    this.loaded = false;
-    this.reservationService.getUserReservations().subscribe( (list) => {
-      // Updates list here and updates list, as /resverations will
-      // share the same list.
-      this.userReservations = list;
-      this.reservationService.pushNewUserReservations(list);
-      this.loaded = true;
-      this.error = false;
-    }, (err) => {
-      // Error handling in case of connection issues.
-      this.error = true;
-      this.loaded = true;
-    });
     /*
     * Testing implementation
     *
@@ -54,11 +40,26 @@ export class QuickResViewComponent implements OnInit, OnDestroy {
     *   approved: true
     * }];
     */
-   }
-
-  ngOnInit() {
   }
-
+  ngOnInit() {
+    this.viewReservation();
+  }
+  viewReservation() {
+    // Hides results while the HTTP request is waiting for a response
+    this.loaded = false;
+    this.reservationService.getUserReservations().subscribe((list) => {
+      // Updates list here and updates list, as /resverations will
+      // share the same list.
+      this.userReservations = list;
+      this.reservationService.pushNewUserReservations(list);
+      this.loaded = true;
+      this.error = false;
+    }, (err) => {
+      // Error handling in case of connection issues.
+      this.error = true;
+      this.loaded = true;
+    });
+  }
   ngOnDestroy() {
 
   }
