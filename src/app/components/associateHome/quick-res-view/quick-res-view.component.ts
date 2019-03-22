@@ -13,7 +13,7 @@ export class QuickResViewComponent implements OnInit, OnDestroy {
   userReservations = [];
 
   loaded: boolean;
-  error; boolean;
+  error: boolean;
 
   constructor(private reservationService: ReservationService) {
     /*
