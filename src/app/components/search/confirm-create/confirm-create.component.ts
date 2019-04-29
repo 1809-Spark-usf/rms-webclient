@@ -29,13 +29,16 @@ export class ConfirmCreateComponent implements OnDestroy {
    */
   confirmReservation() {
     this.reservation.resourceId = this.reservation.resource.id;
+    console.log(this.reservation.resource.id);
     this.reservationService.createNewReservation(this.reservation).subscribe( () => {
       this.reservationService.getUserReservations().subscribe( (data) => {
         this.reservationService.pushNewUserReservations(data);
         this.router.navigateByUrl('/reservations');
         this.activeModal.dismiss();
       });
+      console.log("shit made");
     }, () => {
+      console.log("shit !made");
       alert('There was an error with the server! Please try again.');
       this.activeModal.dismiss();
     });

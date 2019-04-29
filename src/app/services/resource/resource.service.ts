@@ -53,7 +53,7 @@ export class ResourceService {
     const query = `${this.apiUrl}${environment.serviceContext.reservation}/available?startTime=${search.startTime}\
 &endTime=${search.endTime}&purpose=${search.purpose}${campusQuery}${buildingQuery}`;
     // Return the get method so the component can manage the results as needed
-    return this.httpClient.get<Resource[]>(query, { withCredentials: true });
+    return this.httpClient.get<Resource[]>(query);
   }
 
   /**
@@ -63,7 +63,8 @@ export class ResourceService {
   getCampuses() {
     let url = this.apiUrl;
     url += `${environment.serviceContext.resource}/campuses`;
-    return this.httpClient.get<any[]>(url, { withCredentials: true });
+    return this.httpClient.get<any[]>(url); // , { withCredentials: true }); //this was the old code, but we got a cors error
+
   }
 
   getResourceById(resourceId: number) {

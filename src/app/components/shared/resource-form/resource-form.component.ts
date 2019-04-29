@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ReservationService } from 'src/app/services/reservation/reservation.service';
 import { SearchDto } from 'src/app/models/search-dto';
 import { Reservation } from 'src/app/models/reservation';
@@ -26,7 +26,7 @@ export class ResourceFormComponent implements OnInit, OnDestroy {
   time2 = '';
   formInput = new SearchDto();
   reminderTime = 1;
-  getCampusesSub: Subscription
+  getCampusesSub: Subscription;
 
   // Fields for error handling in the template.
   loading = false;
@@ -36,17 +36,20 @@ export class ResourceFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private reservationService: ReservationService,
-    private resourceService: ResourceService, 
-    private router: Router
+    private resourceService: ResourceService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.resourceService.getCampuses().subscribe( (data) => {
        this.campuses = data;
+       console.log(this.campuses);
       }, () => {
         // Error handling, set to empty array
+        console.log('went to the error handler');
         this.campuses = [];
     });
+
   }
 
   /**
@@ -92,7 +95,6 @@ export class ResourceFormComponent implements OnInit, OnDestroy {
     this.buildingId = null;
     this.formInput = new SearchDto();
   }
-
 
   /**
    * Submits the data to search and saves information in Reservation service
