@@ -105,10 +105,9 @@ export class ResourceFormComponent implements OnInit, OnDestroy {
     this.formInput.purpose = this.formInput.purpose.toUpperCase();
     this.formInput.campusId = this.campuses[this.campusIndex].id;
     this.formInput.buildingId = Number(this.buildingId);
-    this.formInput.startTime = this.date + 'T' + this.time1 + ':00';
-    this.formInput.endTime = this.date + 'T' + this.time2 + ':00';
+    this.formInput.startTime = this.date + " " + this.time1 + ':00';
+    this.formInput.endTime = this.date + " " + this.time2 + ':00';
     this.formInput.reminderTime = this.reminderTime;
-
     // Checks that all the required fields have input.
     const objectKey = Object.values(this.formInput);
     let success = true;

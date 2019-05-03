@@ -103,6 +103,7 @@ export class ReservationService {
 
   getAllReservations() {
      const URL = `${this.apiUrl}`;
+     console.log(URL);
      return this.httpClient.get<Reservation[]>(URL);
   }
 

@@ -12,7 +12,7 @@
     </div>
     <p id="error-message">{{errorMessage}}</p>
     <button (click)="onSubmitClick()" type="submit" class="btn btn-primary button">Submit</button>
-    <a class="nav-link" [routerLink]="['../adminRegistration']">
+    <a class="nav-link" [routerLink]="['./adminHome']">
       New Admin Registration
     </a>
     <p *ngIf="justRegistered" id="registration-message">Your registration has been processed please check your email to verify</p>

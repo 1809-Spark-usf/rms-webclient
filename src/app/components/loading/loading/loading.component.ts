@@ -34,7 +34,6 @@ export class LoadingComponent implements OnInit, OnDestroy {
     this.paramsSub = this.activatedRoute.queryParams.subscribe( (params) => {
       this.code = params['code'];
     });
-    console.log(this.code);
     this.userService.getToken(this.code);
     this.userSubscription = this.userService.$currentUser.subscribe( (user) => {
       if (this.userService.canActivate()) {
