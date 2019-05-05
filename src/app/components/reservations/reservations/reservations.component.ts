@@ -39,6 +39,7 @@ export class ReservationsComponent implements OnInit, OnDestroy {
     this.userResSub = this.reservationService.$userReservations.subscribe( (data) => {
       this.userReservations = data;
     });
+    console.log(this.reservationService.userReservations);
     if (this.reservationService.userReservations) {
       this.userReservations = this.reservationService.userReservations;
     } else {

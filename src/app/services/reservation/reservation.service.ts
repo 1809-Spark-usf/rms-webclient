@@ -30,7 +30,7 @@ export class ReservationService {
 
   /**
    * This is the list of current reservations that a user has.
-   * This is chared by a component on the home page and on the
+   * This is shared by a component on the home page and on the
    * current reservations (/reservations) view
    */
   userReservations: Reservation[];
