@@ -97,6 +97,8 @@ export class ReservationService {
    * @returns an observable that contains JSON data
    */
   cancelReservations(id: number) {
+    console.log("ANGULAR CALL");
+        
     const url = `${this.apiUrl}/cancel?id=${id}`;
     return this.httpClient.post(url, null);
   }

@@ -12,6 +12,8 @@ import { AdminLoginComponent } from './components/admin/admin-login/admin-login.
 import { AdminRegistrationComponent } from './components/admin/admin-registration/admin-registration.component';
 import { AdminVerifiedComponent } from './components/admin/admin-verified/admin-verified.component';
 import { AdminEditReservationComponent } from './components/admin/admin-edit-reservation/admin-edit-reservation/admin-edit-reservation.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { AdminResouceComponent } from './components/admin/admin-resouce/admin-resouce.component';
 
 const routes: Routes = [{
   component: LoginComponent,
@@ -53,7 +55,13 @@ const routes: Routes = [{
 }, {
   component: AdminVerifiedComponent,
   path: 'adminVerified',
-},
+}, {
+  component: AdminHomeComponent,
+  path: 'adminHome',
+}, {
+  component: AdminResouceComponent,
+  path: 'resources',
+}
 ];
 
 @NgModule({

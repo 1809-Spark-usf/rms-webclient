@@ -30,16 +30,16 @@
           <ng-container *ngIf="reservation.resource">
             <span *ngIf="reservation?.resource.hasEthernet" ngbPopover="Ethernet available" triggers="mouseenter:mouseleave">
               <mat-icon>network_wifi</mat-icon>
-            </span> 
+            </span>
             <span *ngIf="!reservation?.resource.hasEthernet" ngbPopover="No Ethernet" triggers="mouseenter:mouseleave">
               <mat-icon>signal_wifi_off</mat-icon>
             </span>
             <span *ngIf="reservation?.resource.hasComputer"ngbPopover="Computers available" triggers="mouseenter:mouseleave">
               <mat-icon>computer</mat-icon>
-            </span>    
+            </span>
             <span *ngIf="!reservation?.resource.hasComputer" ngbPopover="No computers/laptops" triggers="mouseenter:mouseleave">
               <mat-icon>phonelink_off</mat-icon>
-            </span>  
+            </span>
             <span *ngIf="reservation?.resource.hasMicrophone"ngbPopover="Microphones avaialable" triggers="mouseenter:mouseleave">
               <mat-icon>headset_mic</mat-icon>
             </span>

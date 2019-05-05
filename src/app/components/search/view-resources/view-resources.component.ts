@@ -25,7 +25,7 @@ export class ViewResourcesComponent implements OnInit, OnDestroy {
   constructor(
     public reservationService: ReservationService,
     private modalService: NgbModal,
-    public resourceService: ResourceService
+    public resourceService: ResourceService,
   ) { }
 
   /**
@@ -54,9 +54,7 @@ export class ViewResourcesComponent implements OnInit, OnDestroy {
    * When the user navigates away from the page, destroy the entire list of resources.
    */
   ngOnDestroy() {
-    if (this.resourceService) {
-      this.resourceSubscription.unsubscribe();
-    }
+
     this.resourceService.pushNewCurrentResourceList(null);
   }
 }

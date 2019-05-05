@@ -21,7 +21,7 @@ export class AdminEditReservationComponent implements OnInit {
     private reservationIdBehaviorSetService: ReservationIdBehaviorSetService,
     private reservationService: ReservationService,
     private resourceService: ResourceService,
-    private userService: UserService
+    private userService: UserService,
   ) { }
 
   ngOnInit() {

@@ -1,0 +1,103 @@
+<!--<div class="modal-header">
+    <h4 class="modal-title">Cancel Resource Reservation</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ng-container *ngIf="!resolved">
+      <p>Cancel Resource reservation for {{user?.name}}</p>
+      Cancelling a resources cannot be undone!
+   <br> <br >
+      <span class="res-property">
+        Purpose :
+      </span>
+      <span class="res-value">
+        {{ reservation?.purpose | titlecase }}
+      </span>
+      <br>
+      <span class="res-property">
+        Reservation Date :
+      </span>
+      <span class="res-value">
+        {{reservation?.startTime | date: 'MMM d, y'}}
+      </span>
+      <br>
+      <span class="res-property">
+        Reservation Time :
+      </span>
+      <span class="res-value">
+        {{reservation?.startTime | date: 'h:mm a'}} to {{reservation?.endTime | date: 'h:mm a'}}
+      </span>
+      <br>
+      <ng-container *ngIf="resolved && !error">
+        Reservation has been removed.
+      </ng-container>
+  
+      <ng-container *ngIf="error">
+        Error! Please try again later.
+      </ng-container>
+    </ng-container>
+  
+    <ng-container *ngIf="resolved || error">
+      <button type="button" class="btn btn-primary" (click)="activeModal.dismiss('close')">Close</button>
+    </ng-container>
+  
+    <ng-container *ngIf="!resolved && !error">
+      <div class="cancel-buttons">
+      <button *ngIf="reservation" type="button" class="btn btn-primary" (click)="activeModal.dismiss()">Close Window</button>
+      <button *ngIf="reservation" type="button" class="btn btn-danger" (click)="cancelReservation()">Cancel Reservation</button>
+      </div>
+    </ng-container>
+  </div> -->
+  
+<div class="modal-body">
+
+  <div class="modal-header">
+    <h4 class="modal-title">Alter Resource</h4>
+  </div>
+  <form #alterResource="ngForm">Name:
+    <input type="text" [(ngModel)]="resources.name" name="name">
+    <hr>
+    Building: 
+    <input type="text" [(ngModel)]="resources.building.name" name="building.name">
+    <hr>
+    Number Of Outlets: 
+    <input type="test" [(ngModel)]="resources.numberOfOutlets" name="numberOfOutlets">
+    <hr>
+    Type: 
+    <select name="type" [(ngModel)]="resources.type">
+      <option [ngValue]=1>Office</option>
+      <option [ngValue]=0>Cubicle</option>
+    </select>
+    <hr>
+    Disabled: 
+    <select name="disabled" [(ngModel)]="resources.disabled">
+        <option [ngValue]=true>True</option>
+        <option [ngValue]=false>False</option>
+    </select> 
+    <hr>
+    Computer: 
+    <select name="hasComputer" [(ngModel)]="resources.hasComputer">
+      <option [ngValue]="true">True</option>
+      <option [ngValue]="false">False</option>
+    </select>
+    <hr>
+    Ethernet: 
+    <select name="hasEthernet" [(ngModel)]="resources.hasEthernet">
+      <option [ngValue]="true">True</option>
+      <option [ngValue]="false">False</option>
+    </select>
+    <hr>
+    Microphone: 
+    <select name="hasMicrophone" [(ngModel)]="resources.hasMicrophone">
+      <option [ngValue]="true">True</option>
+      <option [ngValue]="false">False</option>
+    </select>
+  <hr>
+  <div class="alter-button">
+    <button class="btn btn-danger" (click)="updateRes()">Update Resource</button>
+  </div>
+  </form>
+
+</div>

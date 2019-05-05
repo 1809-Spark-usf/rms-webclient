@@ -12,7 +12,7 @@ export const environment = {
     adminLogin: 'admin-login',
     adminRegistration: 'admin-registration',
   },
-  slackClientId: '564170628241.622078930390',
+  slackClientId: '564387996672.624944927088'
 };
 
 /*
