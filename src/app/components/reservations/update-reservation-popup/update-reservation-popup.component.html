@@ -1,0 +1,103 @@
+<div class="modal-header">
+  <h4 class="modal-title">Update Resource Reservation</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <ng-container *ngIf="!resolved">
+    <p>Update Resource reservation for {{user?.name}}</p>
+ <br> <br >
+ <div class="fake-fieldset">
+  <form>
+    <div class="formItem2">
+      <label class="left-label">Campus:*</label>
+      <select (keydown.enter)="timeCheck()" required [(ngModel)]="campusIndex" (change)= "setBuildings()" name="campus" id="campuses" class="form-control form-control-sm formItem">
+        <ng-container *ngFor="let key of campuses; let i = index" [attr.date-index]="i">
+          <option value="{{i}}">{{key.name}}</option>
+        </ng-container>
+      </select>
+    </div>
+    <div class="formItem2">
+      <label class="left-label">Building </label>
+      <select (keydown.enter)="timeCheck()" [(ngModel)]="buildingId" name="building" id="building" class="form-control form-control-sm formItem">
+        <ng-container *ngFor = "let key of campuses[campusIndex]?.buildings; let j = index" [attr.date-index]="j">  
+          <option value="{{j}}">{{key.name}}</option>
+        </ng-container>
+      </select> 
+    </div>
+    <span class="note formItem2">*Office hours from 9:00 AM to 5:00 PM</span>
+    <div class="formItem2">
+      <div>
+        <label>Date: * &nbsp;</label>
+        <input (keydown.enter)="timeCheck()" required [(ngModel)]="date" type="date" name="date" class="formInput" id="field-color">
+      </div>
+    </div>
+    <div class="formItem2 timeItem">
+      <div>
+        <label for="time1">Start Time:*</label>
+        <br>
+        <input [(ngModel)]="time1" 
+        (keydown.enter)="timeCheck()" 
+        type="time" name="time1" id="field-color">
+      </div>
+      <div>
+        <label for="time2">End Time:*</label> 
+        <br>
+        <input [(ngModel)]="time2" 
+        (keydown.enter)="timeCheck()" type="time" name="time2" id="field-color">
+      </div>
+    </div>
+    <div class="formItem2">
+      <label class="left-label">Purpose:*</label>
+      <select (keydown.enter)="timeCheck()" required [(ngModel)]="purpose" name="purpose" id="purpose" class="form-control form-control-sm formItem">
+        <option>Panel</option>
+        <option>Interview</option>
+      </select>
+    </div>
+    <div class="formItem2">
+      <label class="left-label">Remind Me:*</label>
+      <select (keydown.enter)="timeCheck()" required [(ngModel)]="reminderTime" name="reminderTime" id="reminderTime" class="form-control form-control-sm formItem">
+        <option value="1">One Hour Before</option>
+        <option value="24">One Day Before</option>
+      </select>
+    </div>
+  </form>
+  <br>
+  <div class="error" *ngIf="startTimeError">
+    Start time must be before end time. 
+  </div>
+  <div class="error" *ngIf="timeError">
+    Resources can only be reserved during business hours.
+  </div>
+  <div class="error" *ngIf="fieldError">
+    Please fill in all required (*) fields.
+  </div>
+  <div id="buttonCon">
+    <button (click)="timeCheck()" id="createBTN" class="btn btn-primary">Search Resources</button>
+    <button type="button" id="cancelBTN" style="float: right;" (click)="reset()" class="btn btn-primary">Reset Form</button>
+  </div>
+</div>
+<div class="loading" *ngIf="loading"> ... Loading ...  </div>
+    <br>
+    <ng-container *ngIf="resolved && !error">
+      Reservation has been removed.
+    </ng-container>
+
+    <ng-container *ngIf="error">
+      Error! Please try again later.
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="resolved || error">
+    <button type="button" class="btn btn-primary" (click)="activeModal.dismiss('close')">Close</button>
+  </ng-container>
+
+  <ng-container *ngIf="!resolved && !error">
+    <div class="cancel-buttons">
+    <!-- <button *ngIf="reservation" type="button" class="btn btn-danger" (click)="activeModal.dismiss()">Close Window</button> -->
+    <button *ngIf="reservation" type="button" class="btn btn-danger" (click)="timeCheck()">Update Reservation</button>
+    </div>
+  </ng-container>
+</div>
+

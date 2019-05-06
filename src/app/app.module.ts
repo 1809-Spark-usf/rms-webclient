@@ -43,7 +43,8 @@ import { AdminEditReservationComponent } from './components/admin/admin-edit-res
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AdminResouceComponent } from './components/admin/admin-resouce/admin-resouce.component';
 import { AlterResourceComponent } from './components/admin/alter-resource/alter-resource.component';
-
+import { UpdateReservationPopupComponent } from './components/reservations/update-reservation-popup/update-reservation-popup.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { AlterResourceComponent } from './components/admin/alter-resource/alter-
     AdminHomeComponent,
     AdminResouceComponent,
     AlterResourceComponent,
+    UpdateReservationPopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,6 +104,7 @@ import { AlterResourceComponent } from './components/admin/alter-resource/alter-
     ConfirmCreateComponent,
     CancelReservationPopupComponent,
     AlterResourceComponent
+    UpdateReservationPopupComponent
   ],
   bootstrap: [
     AppComponent,

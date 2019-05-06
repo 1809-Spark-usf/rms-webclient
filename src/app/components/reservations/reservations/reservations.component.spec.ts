@@ -1,6 +1,6 @@
 import { ReservationsComponent } from "./reservations.component";
 import { Reservation } from 'src/app/models/reservation';
-import { Subject } from 'rxjs';
+import { Subject, Observable, from } from 'rxjs';
 import { ReservationService } from 'src/app/services/reservation/reservation.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CancelReservationPopupComponent } from '../cancel-reservation-popup/cancel-reservation-popup.component';
@@ -24,6 +24,7 @@ describe('ReservationsComponent', () => {
         $userReservations: Subject<Reservation[]>,
         getUserReservations: jasmine.Spy,
         pushNewUserReservations: jasmine.Spy,
+        getAllReservations: jasmine.Spy,
     };
 
     // Initialize mocks
@@ -40,6 +41,7 @@ describe('ReservationsComponent', () => {
             $userReservations: new Subject(),
             getUserReservations: undefined,
             pushNewUserReservations: undefined,
+            getAllReservations: undefined,
         };
     });
 
@@ -70,16 +72,23 @@ describe('ReservationsComponent', () => {
             expect(component.userReservations).toBe(reservationServiceStub.userReservations);
         });
         it('should call getUserReservation and pushNewReservation if false reservation.userReservation', () => {
-            reservationServiceStub.userReservations = undefined;
+            reservationServiceStub.userReservations = null;
             const dummyUserSub = new Subject();
             const dummyListReservation = [new Reservation(), new Reservation()];
+            const dummyTestObservable = from(dummyListReservation);
+
             reservationServiceStub.getUserReservations = spyOn(ReservationService.prototype, 'getUserReservations');
             reservationServiceStub.pushNewUserReservations = spyOn(ReservationService.prototype, 'pushNewUserReservations');
+
+            reservationServiceStub.getAllReservations = spyOn(ReservationService.prototype,'getAllReservations');
+
             reservationServiceStub.getUserReservations.and.returnValue(dummyUserSub);
+            reservationServiceStub.getAllReservations.and.returnValue(dummyTestObservable);
+
             component = new ReservationsComponent(<any>ngbAccordionConfigStub, <any>modalServiceStub, <any>reservationServiceStub);
             component.ngOnInit();
-            dummyUserSub.next(dummyListReservation);
-            expect(reservationServiceStub.pushNewUserReservations).toHaveBeenCalledWith(dummyListReservation);
+
+            expect(reservationServiceStub.pushNewUserReservations).toHaveBeenCalledWith(dummyListReservation[0]);
         });
         it('should unsubscribe on ngOnDestroy', () => {
             const dummyUserSub = new Subject();

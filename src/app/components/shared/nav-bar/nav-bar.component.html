@@ -25,12 +25,18 @@
         <li class="nav-item active">
           <a class="nav-link" [routerLink]="['']">Home </a>
         </li>
+<<<<<<< HEAD
         <li class="nav-item" *ngIf="authenticated">
           <a class="nav-link" [routerLink]="['reservations']">Reservations</a>
         </li>
         <li class="nav-item" *ngIf="authenticated && isUserAdmin == true">
           <a class="nav-link" [routerLink]="['resources']">Resources</a>
         </li>
+=======
+        <li class="nav-item" *ngIf="isUserAdmin == false">
+          <a class="nav-link" [routerLink]="['reservations']">Reservations</a>
+        </li>
+>>>>>>> ce223dd926eda7772c2b8d01d1baba84da382dea
         <li class="nav-item" *ngIf="authenticated && isUserAdmin == false">
           <a class="nav-link" routerLink="/search/true">New Reservation</a>
         </li>

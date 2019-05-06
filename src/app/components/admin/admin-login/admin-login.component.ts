@@ -24,7 +24,7 @@ export class AdminLoginComponent implements OnInit {
     private adminLoginService: AdminLoginService,
     private isAdminBehaviorSet: IsAdminBehaviorSetService,
     private titleBehaviorSetService: TitleBehaviorSetService,
-    private router: Router,
+    private router: Router
   ) { }
 
   /**

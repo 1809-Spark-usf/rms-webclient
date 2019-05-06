@@ -3,6 +3,9 @@ import { Subject } from 'rxjs';
 import { Admin } from 'src/app/models/admin';
 import { IsAdminBehaviorSetService } from 'src/app/services/shared/is-admin-behavior-set.service';
 import { TitleBehaviorSetService } from 'src/app/services/shared/title-behavior-set.service';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { TestBed } from '@angular/core/testing';
 
 
 /**
@@ -27,7 +30,17 @@ describe('AdminLoginComponent', () => {
         changeMessage: jasmine.Spy
     } 
 
+    let adminLoginRouterStub:Router
+
     beforeEach( () => {
+        TestBed.configureTestingModule({
+            imports: [
+                RouterTestingModule.withRoutes([]),
+            ],
+        }).compileComponents();
+
+        adminLoginRouterStub = TestBed.get(Router);
+
         adminLoginServiceStub = jasmine.createSpyObj('AdminLoginService', ['validateUser']);
         isAdminBehaviorSetServiceStub = {
             currentMessage: new Subject(),
@@ -45,7 +58,8 @@ describe('AdminLoginComponent', () => {
         component = new AdminLoginComponent(
             <any>adminLoginServiceStub,
             <any>isAdminBehaviorSetServiceStub,
-            <any>titleBehaviorSetServiceStub
+            <any>titleBehaviorSetServiceStub,
+            <any>adminLoginRouterStub
         );
         expect(component).toBeTruthy();
     });
@@ -55,7 +69,8 @@ describe('AdminLoginComponent', () => {
             component = new AdminLoginComponent(
                 <any>adminLoginServiceStub,
                 <any>isAdminBehaviorSetServiceStub,
-                <any>titleBehaviorSetServiceStub
+                <any>titleBehaviorSetServiceStub,
+                <any>adminLoginRouterStub
             );
             let getItem = spyOn(sessionStorage, 'getItem');
             let setItem = spyOn(sessionStorage, 'setItem');
@@ -72,7 +87,8 @@ describe('AdminLoginComponent', () => {
             component = new AdminLoginComponent(
                 <any>adminLoginServiceStub,
                 <any>isAdminBehaviorSetServiceStub,
-                <any>titleBehaviorSetServiceStub
+                <any>titleBehaviorSetServiceStub,
+                <any>adminLoginRouterStub
             );
             let getItem = spyOn(sessionStorage, 'getItem');
             let setItem = spyOn(sessionStorage, 'setItem');
@@ -90,7 +106,8 @@ describe('AdminLoginComponent', () => {
                 component = new AdminLoginComponent(
                     <any>adminLoginServiceStub,
                     <any>isAdminBehaviorSetServiceStub,
-                    <any>titleBehaviorSetServiceStub
+                    <any>titleBehaviorSetServiceStub,
+                    <any>adminLoginRouterStub
                 );
 
                 let runLogin = spyOn(AdminLoginComponent.prototype, 'runLoginEvents');
@@ -108,7 +125,8 @@ describe('AdminLoginComponent', () => {
                 component = new AdminLoginComponent(
                     <any>adminLoginServiceStub,
                     <any>isAdminBehaviorSetServiceStub,
-                    <any>titleBehaviorSetServiceStub
+                    <any>titleBehaviorSetServiceStub,
+                    <any>adminLoginRouterStub
                 );
 
                 let fakeSubject = new Subject<Admin>();
@@ -126,7 +144,8 @@ describe('AdminLoginComponent', () => {
             component = new AdminLoginComponent(
                 <any>adminLoginServiceStub,
                 <any>isAdminBehaviorSetServiceStub,
-                <any>titleBehaviorSetServiceStub
+                <any>titleBehaviorSetServiceStub,
+                <any>adminLoginRouterStub
             );
             
             component.admin = new Admin();
@@ -139,7 +158,8 @@ describe('AdminLoginComponent', () => {
                 component = new AdminLoginComponent(
                     <any>adminLoginServiceStub,
                     <any>isAdminBehaviorSetServiceStub,
-                    <any>titleBehaviorSetServiceStub
+                    <any>titleBehaviorSetServiceStub,
+                    <any>adminLoginRouterStub
                 );
                 let setItem = spyOn(sessionStorage, 'setItem');
                 
@@ -152,7 +172,8 @@ describe('AdminLoginComponent', () => {
             component = new AdminLoginComponent(
                 <any>adminLoginServiceStub,
                 <any>isAdminBehaviorSetServiceStub,
-                <any>titleBehaviorSetServiceStub
+                <any>titleBehaviorSetServiceStub,
+                <any>adminLoginRouterStub
             );
 
             component.admin = new Admin();
