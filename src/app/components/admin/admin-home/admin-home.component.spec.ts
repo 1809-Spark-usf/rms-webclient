@@ -13,7 +13,6 @@ describe('AdminHomeComponent', () => {
          AdminHomeComponent,
          ReservationsComponent
       ],
-      let fixture2: ComponentFixture<ReservationsComponent>;
     })
     .compileComponents();
   }));
