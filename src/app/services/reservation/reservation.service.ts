@@ -30,7 +30,7 @@ export class ReservationService {
 
   /**
    * This is the list of current reservations that a user has.
-   * This is chared by a component on the home page and on the
+   * This is shared by a component on the home page and on the
    * current reservations (/reservations) view
    */
   userReservations: Reservation[];
@@ -75,6 +75,7 @@ export class ReservationService {
    */
   createNewReservation(reservation: Reservation) {
     reservation.userId = this.userService.currentUser.id;
+    console.log(JSON.stringify(reservation));
     return this.httpClient.post<Reservation>(this.apiUrl, reservation);
   }
 
@@ -107,6 +108,7 @@ export class ReservationService {
 
   getAllReservations() {
      const URL = `${this.apiUrl}`;
+     console.log(URL);
      return this.httpClient.get<Reservation[]>(URL);
   }
 

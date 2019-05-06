@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 import { environment } from '../../../../environments/environment';
@@ -21,11 +21,11 @@ export class LoginComponent implements OnInit, OnDestroy {
 &redirect_uri=${environment.appUrl}loading`;
 
   currentUserSub: Subscription;
-  
+
   constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit() {
-    this.authConfirmation()
+    this.authConfirmation();
   }
 
   authConfirmation() {
