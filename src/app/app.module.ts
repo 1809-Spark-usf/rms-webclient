@@ -40,6 +40,7 @@ import { AdminRegistrationComponent } from './components/admin/admin-registratio
 import { IsAdminBehaviorSetService } from './services/shared/is-admin-behavior-set.service';
 import { TitleBehaviorSetService } from './services/shared/title-behavior-set.service';
 import { AdminEditReservationComponent } from './components/admin/admin-edit-reservation/admin-edit-reservation/admin-edit-reservation.component';
+import { UpdateReservationPopupComponent } from './components/reservations/update-reservation-popup/update-reservation-popup.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { AdminEditReservationComponent } from './components/admin/admin-edit-res
     AdminRegistrationComponent,
     AdminVerifiedComponent,
     AdminEditReservationComponent,
+    UpdateReservationPopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +96,7 @@ import { AdminEditReservationComponent } from './components/admin/admin-edit-res
   entryComponents: [
     ConfirmCreateComponent,
     CancelReservationPopupComponent,
+    UpdateReservationPopupComponent
   ],
   bootstrap: [
     AppComponent,
