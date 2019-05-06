@@ -1,0 +1,64 @@
+<p>
+  yee yee
+</p>
+<div class="container">
+  <h1> Current Resources </h1>
+
+  <div class="no-reservations-message" *ngIf="myResourceArr?.length == 0">
+    You currently have no upcoming resource reservations!
+  </div>
+
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel *ngFor="let resource of myResourceArr">
+      <div class="resHeader">
+        <ng-template id="resHeader" ngbPanelTitle type="warning">
+          <div class="row">
+            <span class="col"> Name: {{ resource?.name | titlecase }} </span>
+            <span class="col">Type: {{resource?.type }}</span>
+            <span class="col">Building: {{resource?.building.name}}</span>
+          </div>
+
+        </ng-template>
+      </div>
+
+
+
+      <ng-template ngbPanelContent>
+        <p><strong>Disabled:</strong> {{ resource?.disabled }}</p>
+        <hr>
+        
+          <ng-container *ngIf="resource">
+            <span *ngIf="resource?.hasEthernet" ngbPopover="Ethernet available" triggers="mouseenter:mouseleave">
+              <mat-icon>network_wifi</mat-icon>
+            </span>
+            <span *ngIf="!resource?.hasEthernet" ngbPopover="No Ethernet" triggers="mouseenter:mouseleave">
+              <mat-icon>signal_wifi_off</mat-icon>
+            </span>
+            <span *ngIf="resource?.hasComputer"ngbPopover="Computers available" triggers="mouseenter:mouseleave">
+              <mat-icon>computer</mat-icon>
+            </span>
+            <span *ngIf="!resource?.hasComputer" ngbPopover="No computers/laptops" triggers="mouseenter:mouseleave">
+              <mat-icon>phonelink_off</mat-icon>
+            </span>
+            <span *ngIf="resource?.hasMicrophone"ngbPopover="Microphones avaialable" triggers="mouseenter:mouseleave">
+              <mat-icon>headset_mic</mat-icon>
+            </span>
+            <span *ngIf="!resource?.hasMicrophone" ngbPopover="No microphones" triggers="mouseenter:mouseleave">
+              <mat-icon>mic_off</mat-icon>
+            </span>
+            <span ngbPopover="Outlets available" triggers="mouseenter:mouseleave">
+              <mat-icon>power</mat-icon>{{resource?.numberOfOutlets}}
+            </span>
+          </ng-container>
+
+          <hr>
+          <button type="button" placement="bottom" class="cancel-button btn btn-outline-warning" (click)="this.alter(resource)">
+              Alter Resources
+          </button>
+      
+      </ng-template>
+  
+    </ngb-panel>
+
+  </ngb-accordion>
+</div>

@@ -26,7 +26,7 @@ export class ReservationsComponent implements OnInit, OnDestroy {
   constructor(
     private config: NgbAccordionConfig,
     private modalService: NgbModal,
-    private reservationService: ReservationService,
+    private reservationService: ReservationService
   ) { }
 
   loadValues() {
@@ -43,10 +43,10 @@ export class ReservationsComponent implements OnInit, OnDestroy {
     console.log(this.reservationService.userReservations);
     if (this.reservationService.userReservations) {
       this.userReservations = this.reservationService.userReservations;
-    } else {
-      this.reservationService.getAllReservations().subscribe( (data) => {
-        this.reservationService.pushNewUserReservations(data);
-      });
+    }  else {
+       this.reservationService.getAllReservations().subscribe( (data) => {
+         this.reservationService.pushNewUserReservations(data);
+       });
     }
   }
 

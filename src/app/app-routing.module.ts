@@ -13,6 +13,7 @@ import { AdminRegistrationComponent } from './components/admin/admin-registratio
 import { AdminVerifiedComponent } from './components/admin/admin-verified/admin-verified.component';
 import { AdminEditReservationComponent } from './components/admin/admin-edit-reservation/admin-edit-reservation/admin-edit-reservation.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { AdminResouceComponent } from './components/admin/admin-resouce/admin-resouce.component';
 
 const routes: Routes = [{
   component: LoginComponent,
@@ -57,6 +58,9 @@ const routes: Routes = [{
 }, {
   component: AdminHomeComponent,
   path: 'adminHome',
+}, {
+  component: AdminResouceComponent,
+  path: 'resources',
 }
 ];
 

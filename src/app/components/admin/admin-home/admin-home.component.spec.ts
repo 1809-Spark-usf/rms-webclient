@@ -6,14 +6,13 @@ import { ReservationsComponent } from '../../reservations/reservations/reservati
 describe('AdminHomeComponent', () => {
   let component: AdminHomeComponent;
   let fixture: ComponentFixture<AdminHomeComponent>;
-  let fixture2: ComponentFixture<ReservationsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
          AdminHomeComponent,
          ReservationsComponent
-       ]
+      ],
     })
     .compileComponents();
   }));

@@ -67,8 +67,30 @@ export class ResourceService {
 
   }
 
+  /**
+  * Pass in the id of resource, there is only five resources available
+  * @returns retrieves the resource specified by id passed in.
+   */
   getResourceById(resourceId: number) {
     const URL = `${this.apiUrl}resources/${resourceId}`;
     return this.httpClient.get<Resource>(URL);
+  }
+
+  /**
+   * There is five available resources according to the h2 database.
+   * @returns a list of all available resources to the user. 
+   */
+  getAllResources() {
+    const URL = `${this.apiUrl}resources`;
+    return this.httpClient.get<Resource>(URL);
+  }
+
+  /**
+  * Using two-way binding the admin can update a resource 
+  * @returns returns the updated section for the block selected.
+  */
+  updateResource(Resource : any) {
+    const URL = `${this.apiUrl}resources/${Resource.id}`;
+    return this.httpClient.put<Resource>(URL, Resource);
   }
 }

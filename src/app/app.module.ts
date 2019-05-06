@@ -40,6 +40,9 @@ import { AdminRegistrationComponent } from './components/admin/admin-registratio
 import { IsAdminBehaviorSetService } from './services/shared/is-admin-behavior-set.service';
 import { TitleBehaviorSetService } from './services/shared/title-behavior-set.service';
 import { AdminEditReservationComponent } from './components/admin/admin-edit-reservation/admin-edit-reservation/admin-edit-reservation.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { AdminResouceComponent } from './components/admin/admin-resouce/admin-resouce.component';
+import { AlterResourceComponent } from './components/admin/alter-resource/alter-resource.component';
 import { UpdateReservationPopupComponent } from './components/reservations/update-reservation-popup/update-reservation-popup.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 
@@ -65,8 +68,10 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
     AdminRegistrationComponent,
     AdminVerifiedComponent,
     AdminEditReservationComponent,
-    UpdateReservationPopupComponent,
     AdminHomeComponent,
+    AdminResouceComponent,
+    AlterResourceComponent,
+    UpdateReservationPopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -98,6 +103,7 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
   entryComponents: [
     ConfirmCreateComponent,
     CancelReservationPopupComponent,
+    AlterResourceComponent
     UpdateReservationPopupComponent
   ],
   bootstrap: [
