@@ -9,9 +9,6 @@ describe('AdminHomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
       declarations: [
          AdminHomeComponent,
          ReservationsComponent
