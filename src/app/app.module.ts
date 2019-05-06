@@ -40,6 +40,7 @@ import { AdminRegistrationComponent } from './components/admin/admin-registratio
 import { IsAdminBehaviorSetService } from './services/shared/is-admin-behavior-set.service';
 import { TitleBehaviorSetService } from './services/shared/title-behavior-set.service';
 import { AdminEditReservationComponent } from './components/admin/admin-edit-reservation/admin-edit-reservation/admin-edit-reservation.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { AdminEditReservationComponent } from './components/admin/admin-edit-res
     AdminRegistrationComponent,
     AdminVerifiedComponent,
     AdminEditReservationComponent,
+    AdminHomeComponent,
   ],
   imports: [
     BrowserModule,

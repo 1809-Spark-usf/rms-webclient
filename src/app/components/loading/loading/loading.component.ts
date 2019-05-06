@@ -18,21 +18,23 @@ export class LoadingComponent implements OnInit, OnDestroy {
   paramsSub: Subscription;
 
   constructor(
-    private activatedRoute: ActivatedRoute, 
-    private userService: UserService, 
-    public router: Router
+    private activatedRoute: ActivatedRoute,
+    private userService: UserService,
+    public router: Router,
   ) { }
 
   ngOnInit() {
-    this.userService.getToken(this.code);
+    this.loadValues();
+// tslint:disable-next-line: no-commented-code
+    // this.userService.getToken(this.code);
   }
 
   loadValues() {
-    let route = new ActivatedRoute();
-    console.log(route);
+
     this.paramsSub = this.activatedRoute.queryParams.subscribe( (params) => {
       this.code = params['code'];
     });
+    this.userService.getToken(this.code);
     this.userSubscription = this.userService.$currentUser.subscribe( (user) => {
       if (this.userService.canActivate()) {
         this.router.navigate(['home']);
