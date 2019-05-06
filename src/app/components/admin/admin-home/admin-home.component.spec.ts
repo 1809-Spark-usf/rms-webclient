@@ -12,8 +12,8 @@ describe('AdminHomeComponent', () => {
       declarations: [
          AdminHomeComponent,
          ReservationsComponent
-       ]
-  let fixture2: ComponentFixture<ReservationsComponent>;
+      ],
+      let fixture2: ComponentFixture<ReservationsComponent>;
     })
     .compileComponents();
   }));
