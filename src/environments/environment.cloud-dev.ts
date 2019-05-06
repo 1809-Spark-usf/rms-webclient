@@ -9,5 +9,5 @@ export const environment = {
         adminRegistration: 'admin-registration'
 
     },
-    slackClientId: '512693710501.512428850932',
+    slackClientId: '564170628241.621662389317',
 };

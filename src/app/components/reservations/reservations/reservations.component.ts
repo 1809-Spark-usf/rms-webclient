@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { Reservation } from 'src/app/models/reservation';
 import { ReservationService } from 'src/app/services/reservation/reservation.service';
 import { CancelReservationPopupComponent } from '../cancel-reservation-popup/cancel-reservation-popup.component';
+import { UpdateReservationPopupComponent } from '../update-reservation-popup/update-reservation-popup.component';
 
 /**
  * revervations component displays a list of reservations for the user
@@ -55,6 +56,12 @@ export class ReservationsComponent implements OnInit, OnDestroy {
    */
   open(selectedReservation: Reservation) {
     const modalRef = this.modalService.open(CancelReservationPopupComponent, { centered: true });
+    modalRef.componentInstance.reservation = selectedReservation;
+    modalRef.componentInstance.loaded = true;
+  }
+
+  update(selectedReservation: Reservation){
+    const modalRef = this.modalService.open(UpdateReservationPopupComponent, { centered: true });
     modalRef.componentInstance.reservation = selectedReservation;
     modalRef.componentInstance.loaded = true;
   }
